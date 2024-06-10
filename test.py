@@ -1,4 +1,6 @@
-def hello_world():
-    print("Hello, world!")
+import pyspark
+from pyspark.sql import SparkSession
 
-hello_world()
+spark = SparkSession.builder.appName("example").getOrCreate()
+print(spark.version)
+

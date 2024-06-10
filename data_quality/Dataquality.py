@@ -1,13 +1,15 @@
 from reader.JSONFileReader import JSONFileReader
-from great_expectations.dataset.sparkdf_dataset import SparkDFDataset
+#from great_expectations.dataset.sparkdf_dataset import SparkDFDataset
+import pandas as pd
+from great_expectations.dataset import PandasDataset
 from expectation.NotNullExpectation import NotNullExpectation
 from expectation.UniqueExpectation import UniqueExpectation
 from expectation.ValuesInListExpectation import ValuesInListExpectation
 
 class DataQuality:
     
-    def __init__(self, pysark_df, config_path):
-        self.pysark_df = pysark_df
+    def __init__(self, pandas_df, config_path):
+        self.pandas_df = pandas_df
         self.config_path = config_path
         
     def rule_mapping(self, dq_rule):
@@ -22,7 +24,7 @@ class DataQuality:
         return class_obj(self.extractor_args)
     
     def convert_to_ge_df(self):
-        return SparkDFDataset(self.pyspark_df)
+        return PandasDataset(self.pandas_df)
     
     def read_config(self):
         json_reader = JSONFileReader(self.config_path)
@@ -35,7 +37,7 @@ class DataQuality:
             if column["dq_rule(s)"] is None:
                 continue
             for dq_rule in column["dq_rule(s)"]:
-                expectation_obj = globals()[self.rule_mapping(dq_rule["rule_name"])]
+                expectation_obj = self.rule_mapping(dq_rule["rule_name"])
                 expectation_instance = expectation_obj(column["column_name"], dq_rule["rule_dimension"], dq_rule["add_info"])
                 expectation_instance.test(ge_df)
     
