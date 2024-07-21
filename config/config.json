@@ -1,5 +1,5 @@
 {
-    "data_product_name": "student",
+    "data_product_name": "student",  
     "columns" : [
         {
             "column_name" : "roll_no",
