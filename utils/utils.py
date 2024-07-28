@@ -15,7 +15,7 @@ def create_df_from_dq_results(dq_results):
             "unexpected_count": result["result"]["unexpected_count"],
             "element_count": result["result"]["element_count"],
             "unexpected_percent": result["result"]["unexpected_percent"],
-            "percent": float(100 - result["result"]["unexpected_percent"])
+            "score": float(100 - result["result"]["unexpected_percent"])
         })
         #print("result:", result)
     dq_df = pd.DataFrame(dq_data)

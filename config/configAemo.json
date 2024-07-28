@@ -1,0 +1,34 @@
+{
+    "data_product_name": "aemo",  
+    "columns" : [
+        {
+            "column_name" : "SETTLEMENTDATE",
+            "dq_rule(s)" : [
+                {
+                    "rule_name" : "check_if_not_null",
+                    "rule_dimension" : "Completeness",
+                    "add_info" : {}
+                },
+                {
+                    "rule_name" : "check_if_unique",
+                    "rule_dimension" : "Uniqueness",
+                    "add_info" : {}
+                }
+            ]
+        },
+        {
+            "column_name" : "BRYB1WF1",
+            "dq_rule(s)" : [
+                {
+                    "rule_name" : "check_if_not_null",
+                    "rule_dimension" : "Completeness",
+                    "add_info" : {}
+                }
+            ]
+        },
+        {
+            "column_name" : "CATHROCK",
+            "dq_rule(s)" : []
+        }
+    ]
+}

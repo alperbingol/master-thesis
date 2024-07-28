@@ -50,12 +50,12 @@ class DataQuality:
                     expectation_class = self.rule_mapping(dq_rule["rule_name"])
                     expectation_instance = expectation_class(column["column_name"], dq_rule["rule_dimension"], dq_rule["add_info"])
                     self.add_expectation(expectation_instance)
-                    print(f"Added expectation: {expectation_instance.__class__.__name__} for column: {column['column_name']}")
-                    print(f"Current expectations in the dataset: {self.ge_df.get_expectation_suite().expectations}")
+                    #print(f"Added expectation: {expectation_instance.__class__.__name__} for column: {column['column_name']}")
+                    #print(f"Current expectations in the dataset: {self.ge_df.get_expectation_suite().expectations}")
                     #print(f"Current dataset: {self.ge_df}")
                     
-        print("Expectation suite before validation:")
-        print(json.dumps(self.ge_df.get_expectation_suite().to_json_dict(), indent=2))         
+        #print("Expectation suite before validation:")
+        #print(json.dumps(self.ge_df.get_expectation_suite().to_json_dict(), indent=2))         
         
         dq_results = self.ge_df.validate()
         #print("Validation results:")
