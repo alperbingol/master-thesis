@@ -1,0 +1,46 @@
+2024-07-29T15:34:24 | DataQualityLogger | CRITICAL | ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ DataQuality service is starting ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+2024-07-29T15:34:24 | DataQualityLogger | WARNING | Setting the logging level to INFO
+2024-07-29T15:34:24 | DataQualityLogger | WARNING | Logs will be written to the file logs/data_quality_service.log
+2024-07-29T15:34:42 | DataQualityLogger | INFO | Test run performance: 0.04620740003883839 seconds
+2024-07-29T15:34:42 | DataQualityLogger | INFO |            column     dimension  status                     expectation_type  unexpected_count  element_count  unexpected_percent  score
+0  SETTLEMENTDATE  Completeness  PASSED  expect_column_values_to_not_be_null                 0             10                 0.0  100.0
+1  SETTLEMENTDATE    Uniqueness  PASSED    expect_column_values_to_be_unique                 0             10                 0.0  100.0
+2        BRYB1WF1  Completeness  FAILED  expect_column_values_to_not_be_null                10             10               100.0    0.0
+2024-07-29T15:34:42 | DataQualityLogger | INFO | Saved expectation suite contents:
+2024-07-29T15:34:42 | DataQualityLogger | INFO | {
+  "data_asset_type": "Dataset",
+  "expectation_suite_name": "default_suite",
+  "expectations": [
+    {
+      "expectation_type": "expect_column_values_to_not_be_null",
+      "kwargs": {
+        "column": "SETTLEMENTDATE"
+      },
+      "meta": {
+        "dimension": "Completeness"
+      }
+    },
+    {
+      "expectation_type": "expect_column_values_to_be_unique",
+      "kwargs": {
+        "column": "SETTLEMENTDATE"
+      },
+      "meta": {
+        "dimension": "Uniqueness"
+      }
+    },
+    {
+      "expectation_type": "expect_column_values_to_not_be_null",
+      "kwargs": {
+        "column": "BRYB1WF1"
+      },
+      "meta": {
+        "dimension": "Completeness"
+      }
+    }
+  ],
+  "ge_cloud_id": null,
+  "meta": {
+    "great_expectations_version": "0.18.15"
+  }
+}

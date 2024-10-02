@@ -1,6 +1,6 @@
 {
-  "expectation_suite_name": "default_suite",
-  "ge_cloud_id": null,
+  "data_asset_type": "Dataset",
+  "expectation_suite_name": "expectation_suite_test",
   "expectations": [
     {
       "expectation_type": "expect_column_values_to_not_be_null",
@@ -28,9 +28,19 @@
       "meta": {
         "dimension": "Completeness"
       }
+    },
+    {
+      "expectation_type": "expect_column_values_to_match_regex",
+      "kwargs": {
+        "column": "last_name",
+        "regex": "^[A-Za-z]+$"
+      },
+      "meta": {
+        "dimension": "Consistency"
+      }
     }
   ],
-  "data_asset_type": "Dataset",
+  "ge_cloud_id": null,
   "meta": {
     "great_expectations_version": "0.18.15"
   }

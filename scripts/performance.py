@@ -7,15 +7,15 @@ def timer(func):
     def wrapper(*args, **kwargs):
         time_start = perf_counter()
         func(*args, **kwargs)
-        return perf_counter() - time_start
+        execution_time = perf_counter() - time_start
+        print(f"Function '{func.__name__}' executed in: {execution_time:.4f} seconds")
     return wrapper
 
 
 @timer
 def time_run_test(dq):
-    print("Runninind data quality test...")
+    print("Running data quality test...")
     dq.run_test()
-    
     
 
 """
