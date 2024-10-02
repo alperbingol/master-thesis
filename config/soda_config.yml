@@ -1,0 +1,4 @@
+data_source my_csv_dataset:
+  type: file
+  connection:
+    path: data/myfile.csv

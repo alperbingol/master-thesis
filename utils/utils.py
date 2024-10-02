@@ -20,3 +20,27 @@ def create_df_from_dq_results(dq_results):
         #print("result:", result)
     dq_df = pd.DataFrame(dq_data)
     return dq_df
+
+
+def create_summary_report(dq_results):
+    summary = {
+        "total_checks": 0,
+        "total_passed": 0,
+        "total_failed": 0,
+        "failed_details": []
+    }
+    for result in dq_results["results"]:
+        summary["total_checks"] += 1
+        if result["success"]:
+            summary["total_passed"] += 1
+        else:
+            summary["total_failed"] += 1
+            summary["failed_details"].append({
+                "column": result["expectation_config"]["kwargs"]["column"],
+                "expectation_type": result["expectation_config"]["expectation_type"],
+                "unexpected_count": result["result"].get("unexpected_count", 0),
+                "unexpected_percent": result["result"].get("unexpected_percent", 0)
+            })
+    
+    return summary
+

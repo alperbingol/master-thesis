@@ -1,0 +1,74 @@
+{
+  "data_asset_type": "Dataset",
+  "expectation_suite_name": "expectation_suite_test",
+  "expectations": [
+    {
+      "expectation_type": "expect_column_values_to_not_be_null",
+      "kwargs": {
+        "column": "roll_no"
+      },
+      "meta": {
+        "dimension": "Completeness"
+      }
+    },
+    {
+      "expectation_type": "expect_column_values_to_be_unique",
+      "kwargs": {
+        "column": "roll_no"
+      },
+      "meta": {
+        "dimension": "Uniqueness"
+      }
+    },
+    {
+      "expectation_type": "expect_column_values_to_not_be_null",
+      "kwargs": {
+        "column": "first_name"
+      },
+      "meta": {
+        "dimension": "Completeness"
+      }
+    },
+    {
+      "expectation_type": "expect_column_values_to_match_regex",
+      "kwargs": {
+        "column": "last_name",
+        "regex": "^[A-Za-z]+$"
+      },
+      "meta": {
+        "dimension": "Consistency"
+      }
+    },
+    {
+      "expectation_type": "expect_column_values_to_be_in_set",
+      "kwargs": {
+        "column": "subject",
+        "value_set": [
+          "Maths",
+          "Science",
+          "English",
+          "Hindi",
+          "Sanskrit"
+        ]
+      },
+      "meta": {
+        "dimension": "Validity"
+      }
+    },
+    {
+      "expectation_type": "expect_column_values_to_be_between",
+      "kwargs": {
+        "column": "marks",
+        "max_value": 100,
+        "min_value": 0
+      },
+      "meta": {
+        "dimension": "Validity"
+      }
+    }
+  ],
+  "ge_cloud_id": null,
+  "meta": {
+    "great_expectations_version": "0.18.15"
+  }
+}
